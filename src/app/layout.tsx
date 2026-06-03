@@ -7,6 +7,7 @@ import { ServiceWrapper } from "@/components/ServiceWrapper";
 import Tag from "@/tag/Tag";
 import { getVisualEditScript } from "@/utils/visual-edit-script";
 import { Public_Sans } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 
 
 
@@ -41,12 +42,13 @@ export const metadata: Metadata = {
   },
 };
 
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",
-  subsets: ["latin"],
-});
+
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+});
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
 });
 
@@ -58,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <ServiceWrapper>
-        <body className={`${publicSans.variable} ${inter.variable} antialiased`}>
+        <body className={`${inter.variable} ${openSans.variable} antialiased`}>
           <Tag />
           {children}
           <script
